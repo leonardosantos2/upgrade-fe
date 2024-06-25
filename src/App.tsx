@@ -1,13 +1,14 @@
+import { RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
+import router from "./router";
+import theme from "./styles/theme";
+
 const App = () => {
   return (
-    <div>
-      <header>
-        <h1>Welcome to Upgrade challenge</h1>
-      </header>
-      <p>
-        To get started, edit <code>src/App.jsx</code> and save to reload.
-      </p>
-    </div>
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 };
 
