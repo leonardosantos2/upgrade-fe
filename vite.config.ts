@@ -14,6 +14,20 @@ export default defineConfig(() => {
     server: {
       port: 3000,
     },
-    plugins: [react()],
+    plugins: [
+      react({
+        babel: {
+          plugins: [
+            [
+              'babel-plugin-styled-components',
+              {
+                displayName: true,
+                fileName: false
+              }
+            ]
+          ]
+        }
+      })
+    ],
   };
 });

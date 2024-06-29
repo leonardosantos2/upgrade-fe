@@ -1,6 +1,6 @@
 import { InputFieldContainer } from "../../styles/inputField";
 import useSignUpViewController from "../../viewController/SignUpViewController";
-import Spinner from "../general/Spinner";
+import Spinner, { SpinnerContainer } from "../general/Spinner";
 
 const FavoriteColorDropdown = () => {
   const {
@@ -15,7 +15,11 @@ const FavoriteColorDropdown = () => {
   const validateOnChange = true;
 
   return isFetching ?
-    <Spinner width="24px" /> : (
+    (
+      <SpinnerContainer>
+        <Spinner width="24px" />
+      </SpinnerContainer>
+    ) : (
       <InputFieldContainer>
         <label htmlFor="favorite-color">{"Select Your Favorite Color"}</label>
         <select

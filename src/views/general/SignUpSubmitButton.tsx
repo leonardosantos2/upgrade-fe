@@ -1,3 +1,4 @@
+import theme from "../../styles/theme";
 import useSignUpConfirmationViewController from "../../viewController/SignUpConfirmationViewController";
 import Spinner from "./Spinner";
 
@@ -9,7 +10,7 @@ const SignUpSubmitButton = () => {
 
   return (
     <button type="button" onClick={handleSubmitForm} disabled={isFetching}>
-      {isFetching ? <Spinner width="12px" /> : 'Submit'}
+      {isFetching ? <Spinner width="12px" color={theme.colors.white} /> : 'Submit'}
     </button>
   );
 };

@@ -5,7 +5,7 @@ import { User } from "../types/user";
 import useSignUpViewModel from "../viewModels/SignUpViewModel";
 import { signUpUserSelector } from "../atoms/user";
 import { useEffect } from "react";
-import { ERROR_PATH, MORE_INFO_PATH } from "../router";
+import { ERROR_PATH, MORE_INFO_PATH, SUCCESS_PATH } from "../router";
 
 const useSignUpViewController = (fieldName: keyof User) => {
   const navigate = useNavigate();
@@ -42,7 +42,11 @@ const useSignUpViewController = (fieldName: keyof User) => {
   }, []);
 
   useEffect(() => {
-    if (fetchingError) {
+    if (
+      fetchingError &&
+      location.pathname !== ERROR_PATH &&
+      location.pathname !== SUCCESS_PATH
+    ) {
       navigate(ERROR_PATH);
     }
   }, [fetchingError]);

@@ -1,9 +1,10 @@
 import NavigationButton from "../../general/SignUpNavigationButton";
 import SignUpInputField from "../../general/SignUpInputField";
+import { PageWrapper } from "../../../styles/page";
 
 const SignUpView = () => {
   return (
-    <>
+    <PageWrapper>
       <h1>{'Sign Up'}</h1>
 
       <form onSubmit={(e) => e.preventDefault()}>
@@ -16,7 +17,7 @@ const SignUpView = () => {
           navigationDirection="next"
         />
       </form>
-    </>
+    </PageWrapper>
   );
 };
 

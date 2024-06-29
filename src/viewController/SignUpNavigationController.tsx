@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
-import { defaultUser, signUpUserErrors, signUpUserInput } from "../atoms/user";
+import { defaultUser, fetchingState, signUpUserErrors, signUpUserInput } from "../atoms/user";
 import useSignUpViewModel from "../viewModels/SignUpViewModel";
 import { CONFIRMATION_PATH, HOME_PATH, MORE_INFO_PATH } from "../router";
 import { User } from "../types/user";
@@ -12,6 +12,7 @@ const useSignUpNavigationController = () => {
 
   const [user, setUser] = useRecoilState(signUpUserInput);
   const setErrors = useSetRecoilState(signUpUserErrors);
+  const setFetchInfo = useSetRecoilState(fetchingState);
 
   const { validateUserInfo } = useSignUpViewModel();
 
@@ -68,6 +69,7 @@ const useSignUpNavigationController = () => {
   const handleRestartForm = () => {
     setUser(defaultUser);
     setErrors({});
+    setFetchInfo({ isFetching: false, error: undefined });
     navigate(HOME_PATH);
   };
 
