@@ -1,20 +1,36 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 
-export const routes: RouteObject[] = [{
-  path: '/',
-  Component: () => (<h1>{'Welcome to Upgrade challenge'}</h1>),
+import SignUpView from "./views/pages/SignUpHome/SignUpView";
+import SignUpAditionalInfoView from "./views/pages/SignUpAditionalInfo/SignUpAditionalInfoView";
+import SignUpConfirmationView from "./views/pages/SignUpConfirmation/SignUpConfirmationView";
+import SuccessPage from "./views/pages/Success/SuccessPage";
+import ErrorPage from "./views/pages/Error/ErrorPage";
+
+export const HOME_PATH = '/';
+export const MORE_INFO_PATH = '/more-info';
+export const CONFIRMATION_PATH = '/confirmation';
+export const SUCCESS_PATH = '/success';
+export const ERROR_PATH = '/error';
+export const TERMS_AND_CONDITIONS_PATH = '/terms-and-conditions';
+
+const routes: RouteObject[] = [{
+  path: HOME_PATH,
+  Component: () => <SignUpView />,
 }, {
-  path: '/more-info',
-  Component: () => (<h1>{'More info page'}</h1>),
+  path: MORE_INFO_PATH,
+  Component: () => <SignUpAditionalInfoView />,
 }, {
-  path: '/confirmation',
-  Component: () => (<h1>{'Confirmation page'}</h1>),
+  path: CONFIRMATION_PATH,
+  Component: () => <SignUpConfirmationView />,
 }, {
-  path: '/success',
-  Component: () => (<h1>{'Success page'}</h1>),
+  path: SUCCESS_PATH,
+  Component: () => <SuccessPage />,
 }, {
-  path: '/error',
-  Component: () => (<h1>{'Error page'}</h1>),
+  path: ERROR_PATH,
+  Component: () => <ErrorPage />,
+}, {
+  path: TERMS_AND_CONDITIONS_PATH,
+  Component: () => (<h1>{'Terms and Conditions coming soon ...'}</h1>),
 }];
 
 const router = createBrowserRouter(routes);
