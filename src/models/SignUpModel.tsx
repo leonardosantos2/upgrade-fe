@@ -17,7 +17,7 @@ const useSignUpModel = () => {
         method: 'GET',
       });
 
-      const colorsData = await colorsResponse.json();
+      const colorsData: string[] = await colorsResponse.json();
 
       setColors(colorsData);
       setFetchInfo((prevState) => ({ ...prevState, isFetching: false, error: undefined }));

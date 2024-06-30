@@ -18,6 +18,7 @@ const SignUpInputField = ({ field }: { field: keyof User }) => {
     <InputField
       type={type}
       id={field}
+      data-testid={field}
       label={label}
       value={typeof value === 'string' ? value : ''}
       onChange={handleFieldChange()}

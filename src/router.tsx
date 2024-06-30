@@ -13,7 +13,7 @@ export const SUCCESS_PATH = '/success';
 export const ERROR_PATH = '/error';
 export const TERMS_AND_CONDITIONS_PATH = '/terms-and-conditions';
 
-const routes: RouteObject[] = [{
+export const routes: RouteObject[] = [{
   path: HOME_PATH,
   Component: () => <SignUpView />,
 }, {
